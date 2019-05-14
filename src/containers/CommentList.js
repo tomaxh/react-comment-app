@@ -8,7 +8,9 @@ class CommentList extends React.Component {
     render() {
         return (
             this.props.comments.map((comment, i) => (
-                <Comments key={i} num={i} comment={comment} />
+                <div className='commentlist'>
+                    <Comments key={i} num={i} comment={comment} />
+                </div>
             )))
 
     }

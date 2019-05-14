@@ -9,10 +9,9 @@ class Comments extends React.Component {
     }
     render() {
         return (
-            <div id={this.props.num}>
-                <p>{this.state.comment.author}: </p>
-                <p>{this.state.comment.content}</p>
-                 < hr /> 
+            <div id={this.props.num} >
+                <p className='comment'>{this.state.comment.author}: </p>
+                <p className='comment-user'>{this.state.comment.content}</p>
             </div >
         );
     }
