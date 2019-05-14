@@ -100,7 +100,8 @@
   .comment-user span {
       color:  #00a3cf;
       font-style: italic;
-      flex-basis: 15%
+      flex-basis: 15%;
+      margin-top:15px;
   }
   .comment-user p {
     color:  #505455;
