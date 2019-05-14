@@ -28,23 +28,35 @@ class AddComments extends React.Component {
         e.preventDefault();
         this.props.action.call(this, this.state);
         this.setState({
+            author: this.state.author,
+            content: '',
 
         })
-        document.getElementById('adding').reset();
+        document.getElementById('i1').value = ''
     }
 
     render() {
         return (
-            <form id='adding' onSubmit={this.onSubmitAdd}>
-                <span>Username: </span>
-                <input type='text' className='author' onChange={this.onChangeAuthor} required style={{ width: '350px' }} />
-                <br />
-                <span>Comment: </span>
-                <textarea type='text' className='content' onChange={this.onChangeContent} required style={{ width: '350px', verticalAlign: 'top' }} />
-                <br />
+            <div className='comment-input'>
+                <div className='comment-field'>
+                    <span className='comment-field-name'>Username: </span>
+                    <div className='comment-field-input'>
+                        <input id='i1' value={this.state.author} onChange={this.onChangeAuthor} />
+                    </div>
+                </div>
 
-                <button type='submit' className='submit' >Post</button>
-            </form>
+                <div className='comment-field'>
+                    <span className='comment-field-name'>Comment: </span>
+                    <div className='comment-field-input'>
+                        <textarea id='i2' value={this.state.content} onChange={this.onChangeContent} />
+                    </div>
+                </div>
+
+                <div className='comment-field-button'>
+                    <button onClick={this.onSubmitAdd}>Post</button>
+                </div>
+            </div>
+
         );
     }
 }
