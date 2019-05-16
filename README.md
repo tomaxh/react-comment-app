@@ -1,6 +1,6 @@
-# A front-end comment app in React
+# Comment-app in React
 
-A Comment posting app, the project is based on React.js
+A front end comment posting app
 
 - [x] Basic functions: state, props, lifting state up, lifecycle
 - [x] Refs
