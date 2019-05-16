@@ -97,13 +97,28 @@
       display: flex;
   }
  
-  .comment-user span {
+  .comment-user .user-name {
       color:  #00a3cf;
       font-style: italic;
       flex-basis: 15%;
       margin-top:15px;
+      margin-right:5px;
   }
   .comment-user p {
     color:  #505455;
     flex-basis: 85%
+}
+
+.comment-user:hover .delete-button {
+  color: #e74e4e;
+  opacity: 1;
+}
+
+.comment-user .delete-button{
+  position: relative;
+  right: 0;
+  top: 0;
+  opacity: 0;
+  font-size: 12px;
+  cursor: pointer;
 }

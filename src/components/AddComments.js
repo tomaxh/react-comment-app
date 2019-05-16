@@ -1,9 +1,10 @@
 import React from 'react';
-
+import uuidv1 from 'uuid';
 class AddComments extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            id: '',
             author: '',
             content: '',
         }
@@ -35,21 +36,27 @@ class AddComments extends React.Component {
 
     handleChangeContent = (e) => {
         this.setState({
+            id: uuidv1(),
             author: this.state.author,
             content: e.target.value,
+
         })
 
     }
 
     onSubmitAdd = (e) => {
         e.preventDefault();
+        if (document.getElementById('input-username').value === '' || document.getElementById('input-content').value === '') {
+            return false;
+        }
         this.props.action.call(this, this.state);
         this.setState({
             author: this.state.author,
             content: '',
+            id: '',
 
         })
-        document.getElementById('i1').value = ''
+        document.getElementById('input-content').value = ''
     }
 
     handleUsernameBlur = (e) => {
@@ -64,14 +71,23 @@ class AddComments extends React.Component {
                 <div className='comment-field'>
                     <span className='comment-field-name'>Username: </span>
                     <div className='comment-field-input'>
-                        <input id='i1' value={this.state.author} onChange={this.handleChangeAuthor} onBlur={this.handleUsernameBlur} />
+                        <input
+                            id='input-username'
+                            value={this.state.author}
+                            onChange={this.handleChangeAuthor}
+                            onBlur={this.handleUsernameBlur} />
                     </div>
                 </div>
 
                 <div className='comment-field'>
                     <span className='comment-field-name'>Comment: </span>
                     <div className='comment-field-input'>
-                        <textarea id='i2' value={this.state.content} onChange={this.handleChangeContent} ref={(textarea) => this.textarea = textarea} />
+                        <textarea
+                            id='input-content'
+                            value={this.state.content}
+                            onChange={this.handleChangeContent}
+                            ref={(textarea) => this.textarea = textarea}
+                        />
                     </div>
                 </div>
 
